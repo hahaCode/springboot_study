@@ -1,0 +1,14 @@
+spring:
+  redis:
+    host: 127.0.0.1 #redis 的主机ip, 如果不配置的话默认连接本机
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///test
+    username: root
+    password: root
+
+#mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml   #mapper映射文件的路径
+  type-aliases-package: com.fan.springboot.redis.domain

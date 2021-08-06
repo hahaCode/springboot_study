@@ -1,0 +1,9 @@
+name: hehe
+
+person:
+  name: ${name}
+  age: 20
+
+address:
+  - beijing
+  - shanghai

@@ -1,0 +1,14 @@
+spring:
+  redis:
+    host: 10.113.78.120 #redis 的主机ip
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///test
+    username: root
+    password: root
+
+#mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml   #mapper映射文件的路径
+  type-aliases-package: com.fan.springboot.redis.domain

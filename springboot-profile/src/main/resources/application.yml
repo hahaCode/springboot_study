@@ -1,0 +1,23 @@
+#这里有问题, 这个配置不生效
+---
+server:
+  prot: 8081
+
+spring:
+  profiles: dev
+---
+server:
+  prot: 8082
+
+spring:
+  profiles: test
+---
+server:
+  prot: 8083
+
+spring:
+  profiles: pro
+---
+spring:
+  profiles:
+    active: pro
