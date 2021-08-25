@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Add New Employee</title>
+
+    <!-- BOOTSTRAP STYLES-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+    <!-- FONTAWESOME STYLES-->
+    <link th:href="@{/css/font-awesome.css}" rel="stylesheet"/>
+    <!--CUSTOM BASIC STYLES-->
+    <link th:href="@{/css/basic.css}" rel="stylesheet"/>
+    <!--CUSTOM MAIN STYLES-->
+    <link th:href="@{/css/custom.css}" rel="stylesheet"/>
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.useso.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<div id="wrapper">
+    <nav th:replace="~{commons/commons::myTopbar}"></nav>
+    <!-- /. NAV TOP  -->
+    <nav th:replace="~{commons/commons::mySidebar(active='table.html')}"></nav>
+    <!-- /. NAV SIDE  -->
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="page-head-line">New Employee Information</h1>
+                    <h1 class="page-subhead-line">This is dummy text , you can replace it with your original text. </h1>
+
+                </div>
+            </div>
+            <!-- /. ROW  -->
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            New Employee
+                        </div>
+                        <div class="panel-body">
+                            <form role="form" th:action="@{/emp/addEmp}" method="post">
+                                <div class="form-group">
+                                    <label>Enter Name</label>
+                                    <input class="form-control" type="text" name="empName">
+                                    <p class="help-block">Help text here.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Enter Email</label>
+                                    <input class="form-control" type="text" name="empEmail">
+                                    <p class="help-block">Help text here.</p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label><br/>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="empGender" id="male"
+                                               value="male">
+                                        <label class="form-check-label" for="male">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="empGender" id="female"
+                                               value="female">
+                                        <label class="form-check-label" for="female">Female</label>
+                                    </div>
+<!--                                    <div class="btn-group" data-toggle="buttons">-->
+<!--                                        <label class="form-check-label" for="male">Male-->
+<!--                                            <input type="radio" name="empGender" id="male">-->
+<!--                                        </label>-->
+
+<!--                                        <label class="form-check-label" for="female">Female-->
+<!--                                            <input type="radio" name="empGender" id="female">-->
+<!--                                        </label>-->
+
+<!--                                    </div>-->
+                                </div>
+                                <div class="form-group">
+                                    <label>Birthday</label>
+                                    <input class="form-control" type="text" name="empBirthday" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Department</label><br/>
+                                    <!--这里要注意提交的是一个Employee对象, 但是私有对象department不能直接提交, 所以提交一个department的属性-->
+                                    <select class="form-control" name="department.depId">
+                                        <option th:each="dept:${departmentList}" th:text="${dept.getDepartmentName()}" th:value="${dept.getDepId()}"></option>
+                                    </select>
+                                </div>
+
+                                <button type="submit" class="btn btn-info">Add</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<div id="footer-sec">
+    Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+</div>
+<!-- /. FOOTER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script th:src="@{/js/jquery-1.10.2.js}"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script th:src="@{/js/bootstrap.js}"></script>
+<!-- METISMENU SCRIPTS -->
+<script th:src="@{/js/jquery.metisMenu.js}"></script>
+<!-- CUSTOM SCRIPTS -->
+<script th:src="@{/js/custom.js}"></script>
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 spring:
   redis:
-    host: 10.113.78.120 #redis 的主机ip
+    host: 127.0.0.1 #redis 的主机ip, 如果不配置的话默认连接本机
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

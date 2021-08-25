@@ -93,5 +93,6 @@
 ### SpringBoot高级
 
 * SpringBoot原理分析
+  `可以在yml文件里配置 debug: true来查看生效/未生效的自动配置类`
 
 * SpringBoot监控
