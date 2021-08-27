@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:shiro="http://www.thymeleaf.org/thymeleaf-extras-shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Home</h1>
+    <p th:text="${msg}"></p>
+
+    <div th:if="!${session.loginUser}">
+        <a th:href="@{/toLogin}">Login</a>
+    </div>
+    <div th:if="${session.loginUser}">
+        <h2>Welcome, <span th:text="${session.loginUser.getUsername()}"></span></h2>
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+    <span shiro:hasPermission="user:add">
+        <a th:href="@{/user/add}">Add User</a>
+    </span>
+    <br>
+    <span shiro:hasPermission="user:update">
+        <a th:href="@{/user/update}">Update User</a>
+    </span>
+</body>
+</html>
