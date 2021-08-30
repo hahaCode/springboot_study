@@ -1,0 +1,10 @@
+spring:
+ mail:
+  username: 664906593@qq.com
+  password: nmvzxwxezntibdhd
+  host: smtp.qq.com
+  properties:
+   mail:
+    smtp:
+     ssl:
+      enable: true #qq邮箱需要开启加密验证
